@@ -308,6 +308,16 @@ public class MyViewController implements Initializable,Observer, IView{
         viewModel.loadGame(chosen);
     }
 
+    public void loadMazeFromOtherPlace(ActionEvent actionEvent) throws IOException {
+        Main.backToMain();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Load Maze");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
+        fileChooser.setInitialDirectory(new File("./resources/SavedMaze"));
+        File chosen = fileChooser.showOpenDialog((Window) null);
+        viewModel.loadGame(chosen);
+    }
+
     public void saveMaze(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Maze");
@@ -334,10 +344,10 @@ public class MyViewController implements Initializable,Observer, IView{
         Main.createMaze();
     }
 
-    public void toLoadMaze(ActionEvent actionEvent) throws IOException {
+    /*public void toLoadMaze(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
-
-    }
+        loadMazeFromOtherPlace();
+    }*/
 
     public void toProperties(ActionEvent actionEvent) throws IOException {
         Main.backToMain();

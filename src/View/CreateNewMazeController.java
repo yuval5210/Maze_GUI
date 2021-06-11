@@ -109,4 +109,8 @@ public class CreateNewMazeController {
         }
         return true;
     }
+
+    public void backToMain(ActionEvent actionEvent) throws IOException {
+        Main.generateTheMaze();
+    }
 }

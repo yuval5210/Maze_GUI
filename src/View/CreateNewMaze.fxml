@@ -23,8 +23,8 @@
                         <Menu mnemonicParsing="false" text="File">
                             <items>
                                 <MenuItem disable="true" mnemonicParsing="false" text="New" />
-                                <MenuItem mnemonicParsing="false" text="Load" />
-                                <MenuItem mnemonicParsing="false" text="Save" />
+                                <MenuItem disable="true" mnemonicParsing="false" text="Load" />
+                                <MenuItem disable="true" mnemonicParsing="false" text="Save" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Options">
@@ -48,41 +48,44 @@
                 </MenuBar>
             </top>
             <center>
-                <GridPane alignment="BOTTOM_CENTER" prefHeight="575.0" prefWidth="766.0" BorderPane.alignment="CENTER">
+                <GridPane alignment="BOTTOM_CENTER" prefHeight="575.0" prefWidth="673.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="169.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="159.0" />
+                        <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="169.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="159.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="206.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="307.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="246.0" minHeight="2.0" prefHeight="44.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="503.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="503.0" minHeight="10.0" prefHeight="215.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="246.0" minHeight="2.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="503.0" minHeight="0.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="503.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="503.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="130.0" text="Maze Rows:" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="130.0" text="Maze Rows:" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Calibri Bold" size="22.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="169.0" text="Maze Columns:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="169.0" text="Maze Columns:" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Calibri Bold" size="22.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="rowsNum" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="rowsNum" GridPane.columnIndex="4" GridPane.rowIndex="1">
                             <font>
                                 <Font name="Calibri" size="18.0" />
                             </font>
                         </TextField>
-                        <TextField fx:id="colsNum" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="colsNum" GridPane.columnIndex="4" GridPane.rowIndex="2">
                             <font>
                                 <Font name="Calibri" size="18.0" />
                             </font>
                         </TextField>
-                        <Button fx:id="generateButton" cache="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#generateTheMaze" prefHeight="28.0" prefWidth="186.0" style="-fx-background-color: DARKORANGE;" text="Generate Maze" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        <Button fx:id="generateButton" cache="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#generateTheMaze" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: DARKORANGE;" text="Generate Maze" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Calibri Bold Italic" size="24.0" />
                             </font>
@@ -93,6 +96,13 @@
                     </children>
                 </GridPane>
             </center>
+         <bottom>
+            <Button onAction="#backToMain" mnemonicParsing="false" prefHeight="78.0" prefWidth="184.0" style="-fx-background-color: WITH;" text="Back" BorderPane.alignment="TOP_LEFT">
+               <font>
+                  <Font name="Calibri Bold Italic" size="36.0" />
+               </font>
+            </Button>
+         </bottom>
         </BorderPane>
     </children>
 </AnchorPane>

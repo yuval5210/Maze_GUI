@@ -19,7 +19,7 @@
                         <Menu mnemonicParsing="false" text="File">
                             <items>
                                 <MenuItem onAction="#toNewMaze" mnemonicParsing="false" text="New" />
-                                <MenuItem onAction="#toLoadMaze" mnemonicParsing="false" text="Load" />
+                                <MenuItem disable="true" onAction="#loadMazeFromOtherPlace" mnemonicParsing="false" text="Load" />
                                 <MenuItem disable="true" mnemonicParsing="false" text="Save" />
                             </items>
                         </Menu>
