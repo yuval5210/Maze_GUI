@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class MazeDisplayer extends Canvas {
-//Yuval :) :)
+//Yuval :)
     private Maze maze;
     private Solution solution;
     private double startX;
