@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -27,11 +28,17 @@
                             <font>
                                 <Font name="Calibri Bold Italic" size="20.0" />
                             </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: FIREBRICK;" text="Exit" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Calibri Bold Italic" size="20.0" />
                             </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Button>
                     </children>
                 </GridPane>

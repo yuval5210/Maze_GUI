@@ -36,11 +36,17 @@
                     <font>
                         <Font name="Calibri Bold Italic" size="30.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
                 <Button fx:id="cancel" layoutX="338.0" layoutY="362.0" mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: WITH;" text="Cancel">
                     <font>
                         <Font name="Calibri Bold Italic" size="30.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
                 <ChoiceBox fx:id="numOfThreads" layoutX="514.0" layoutY="158.0" prefHeight="32.0" prefWidth="182.0">
                     <cursor>
