@@ -353,8 +353,6 @@ public class MyViewController implements Initializable,Observer, IView{
         Main.backToMain();
         Main.mazeAbout();
     }
-
-    //...
 }
 
 
