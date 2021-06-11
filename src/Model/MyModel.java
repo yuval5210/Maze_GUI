@@ -322,7 +322,7 @@ public class MyModel extends Observable implements IModel {
             notifyObservers("player moved");
         }
 
-
+//...
     }
 
     @Override
