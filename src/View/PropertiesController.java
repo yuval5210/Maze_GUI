@@ -6,6 +6,7 @@ import algorithms.search.ISearchingAlgorithm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -28,7 +29,8 @@ public class PropertiesController {
 
     private IView view;
 
-    public PropertiesController() {
+    @FXML
+    private void initialize() {
         Object[] prop = Configurations.getInstance().LoadProperties();
 
         int numThreads = (int)prop[0];
@@ -39,14 +41,14 @@ public class PropertiesController {
 
         IMazeGenerator generator = (IMazeGenerator) prop[1];
         String generatorName = generator.getClass().toString();
-        //generatorName = generatorName.substring()
+        generatorName = generatorName.substring(32);
 
         generatingAlgo.setValue(generatorName);
         generatingAlgo.setItems(generating);
 
         ISearchingAlgorithm searcher = (ISearchingAlgorithm) prop[2];
         String searcherName = searcher.getClass().toString();
-        //searcherName = searcherName.substring()
+        searcherName = searcherName.substring(24);
 
         solvingAlgo.setValue(searcherName);
         solvingAlgo.setItems(solving);

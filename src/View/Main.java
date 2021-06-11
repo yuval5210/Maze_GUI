@@ -19,10 +19,10 @@ public class Main extends Application {
     public static MyViewModel viewModel;
     public static MyViewController viewController;
     public static Stage stageCreate;
-    public static Stage stageAbout;
-    public static Stage stageHelp;
-    public static Stage stageMazeSolved;
-    public static Stage stageProperties;
+    public static Stage stageOthers;
+    //public static Stage stageHelp;
+    //public static Stage stageMazeSolved;
+    //public static Stage stageProperties;
 
 
 
@@ -72,17 +72,17 @@ public class Main extends Application {
         stage.hide();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Properties.fxml"));
         Parent root = fxmlLoader.load();
-        stageProperties = new Stage();
-        stageProperties.setTitle("The last Dance");
-        stageProperties.setScene(new Scene(root, 1000, 600));
-        stageProperties.show();
+        stageOthers = new Stage();
+        stageOthers.setTitle("The last Dance");
+        stageOthers.setScene(new Scene(root, 1000, 600));
+        stageOthers.show();
 
         PropertiesController propertiesMaze = fxmlLoader.getController();
         propertiesMaze.setView(viewController);
     }
 
     public static void backToMain() throws IOException {
-        stageMazeSolved.hide();
+        stageOthers.hide();
         stage.show();
     }
 
@@ -90,27 +90,30 @@ public class Main extends Application {
         stage.hide();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MazeSolved.fxml"));
         Parent root = fxmlLoader.load();
-        stageMazeSolved = new Stage();
-        stageMazeSolved.setTitle("The last Dance");
-        stageMazeSolved.setScene(new Scene(root, 600, 600));
-        stageMazeSolved.show();
+        stageOthers = new Stage();
+        stageOthers.setTitle("The last Dance");
+        stageOthers.setScene(new Scene(root, 600, 600));
+        stageOthers.show();
     }
 
     public static void mazeHelp() throws IOException {
+        stage.hide();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Help.fxml"));
         Parent root = fxmlLoader.load();
-        stage.setTitle("The last Dance");
-        stage.setScene(new Scene(root, 1000, 600));
-        stage.show();
+        stageOthers = new Stage();
+        stageOthers.setTitle("The last Dance");
+        stageOthers.setScene(new Scene(root, 1000, 600));
+        stageOthers.show();
     }
 
     public static void mazeAbout() throws IOException {
         stage.hide();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("About.fxml"));
         Parent root = fxmlLoader.load();
-        stage.setTitle("The last Dance");
-        stage.setScene(new Scene(root, 1000, 600));
-        stage.show();
+        stageOthers = new Stage();
+        stageOthers.setTitle("The last Dance");
+        stageOthers.setScene(new Scene(root, 1000, 600));
+        stageOthers.show();
     }
 
     public void stop() throws Exception{

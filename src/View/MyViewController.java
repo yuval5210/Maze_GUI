@@ -183,6 +183,7 @@ public class MyViewController implements Initializable,Observer, IView{
 
         int rows = Integer.valueOf(textField_mazeRows.getText());
         int cols = Integer.valueOf(textField_mazeColumns.getText());
+        //this.mazeDisplayer.deleteSol();
         viewModel.generateMaze(rows,cols);
 
 
@@ -284,13 +285,41 @@ public class MyViewController implements Initializable,Observer, IView{
     public void saveMaze(ActionEvent actionEvent) {
     }
 
-    public void propertiesMaze(ActionEvent actionEvent) {
+    public void propertiesMaze(ActionEvent actionEvent) throws IOException {
+        Main.propertiesMaze();
     }
 
-    public void helpWindow(ActionEvent actionEvent) {
+    public void helpWindow(ActionEvent actionEvent) throws IOException {
+        Main.mazeHelp();
     }
 
-    public void aboutWindow(ActionEvent actionEvent) {
+    public void aboutWindow(ActionEvent actionEvent) throws IOException {
+        Main.mazeAbout();
+    }
+
+    public void toNewMaze(ActionEvent actionEvent) throws IOException {
+        Main.backToMain();
+        Main.createMaze();
+    }
+
+    public void toLoadMaze(ActionEvent actionEvent) throws IOException {
+        Main.backToMain();
+
+    }
+
+    public void toProperties(ActionEvent actionEvent) throws IOException {
+        Main.backToMain();
+        Main.propertiesMaze();
+    }
+
+    public void toHelp(ActionEvent actionEvent) throws IOException {
+        Main.backToMain();
+        Main.mazeHelp();
+    }
+
+    public void toAbout(ActionEvent actionEvent) throws IOException {
+        Main.backToMain();
+        Main.mazeAbout();
     }
 }
 
