@@ -20,9 +20,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
+import javafx.stage.FileChooser;
 import javafx.stage.Screen;
+import javafx.stage.Window;
 
 
+import java.io.File;
 import java.lang.Object;
 import java.util.Observable;
 import java.util.Observer;
@@ -125,8 +128,25 @@ public class MyViewController implements Initializable,Observer, IView{
             case "player moved" -> playerMoved();
             case "maze generated" -> mazeGenerated();
             case "maze Solved" -> mazeSolved();
+            case "Maze Saved" -> mazeSavedAlert();
+            case "Maze Loaded" -> mazeLoadedAlert();
 
         }
+    }
+
+    private void mazeLoadedAlert() {
+        mazeGenerated();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("The Maze loaded successfully");
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.show();
+    }
+
+    private void mazeSavedAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("The Maze saved successfully");
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.show();
     }
 
     private void mazeSolved() {
@@ -280,9 +300,21 @@ public class MyViewController implements Initializable,Observer, IView{
     }
 
     public void loadMaze(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Load Maze");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
+        fileChooser.setInitialDirectory(new File("./resources/SavedMaze"));
+        File chosen = fileChooser.showOpenDialog((Window) null);
+        viewModel.loadGame(chosen);
     }
 
     public void saveMaze(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Maze");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
+        fileChooser.setInitialDirectory(new File("./resources/SavedMaze"));
+        File chosen = fileChooser.showSaveDialog((Window) null);
+        viewModel.saveGame(chosen);
     }
 
     public void propertiesMaze(ActionEvent actionEvent) throws IOException {

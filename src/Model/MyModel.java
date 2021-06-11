@@ -1,6 +1,7 @@
 package Model;
 
 import Client.Client;
+import IO.MyCompressorOutputStream;
 import IO.MyDecompressorInputStream;
 import Server.Server;
 import Server.*;
@@ -320,6 +321,36 @@ public class MyModel extends Observable implements IModel {
 
     }
 
+    @Override
+    public void saveGame(File chosen) {
+        try{
+            OutputStream out = new MyCompressorOutputStream(new FileOutputStream(chosen));
+            out.write(maze.toByteArray());
+            out.flush();
+            out.close();
+            setChanged();
+            notifyObservers("Maze Saved");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void loadGame(File chosen) {
+        try{
+            InputStream in = new MyDecompressorInputStream(new FileInputStream(chosen));
+            byte[] mazeToLoad = new byte[1000000];
+            in.read(mazeToLoad);
+            in.close();
+            this.maze = new Maze(mazeToLoad);
+            playerRow = this.maze.getStartPosition().getRowIndex();
+            playerCol = this.maze.getStartPosition().getColumnIndex();
+            setChanged();
+            notifyObservers("Maze Loaded");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
 
     private void updateLocation(Position playerPosition) {

@@ -5,6 +5,7 @@ import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 
+import java.io.File;
 import java.util.Observer;
 
 public interface IModel {
@@ -22,4 +23,8 @@ public interface IModel {
 
 
     void updatePlayerLocation(MouseEvent movement, double startX, double startY, double cellWidth, double cellHegiht);
+
+    void saveGame(File chosen);
+
+    void loadGame(File chosen);
 }

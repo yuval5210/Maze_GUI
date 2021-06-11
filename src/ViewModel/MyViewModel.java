@@ -8,6 +8,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -96,4 +97,11 @@ public class MyViewModel extends Observable implements Observer {
         model.updatePlayerLocation(movement,startX, startY,cellWidth , cellHegiht);
     }
 
+    public void saveGame(File chosen) {
+        this.model.saveGame(chosen);
+    }
+
+    public void loadGame(File chosen) {
+        this.model.loadGame(chosen);
+    }
 }
