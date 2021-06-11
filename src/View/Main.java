@@ -97,16 +97,25 @@ public class Main extends Application {
         stage.show();
     }
 
-    /*public static void backToMainFromSolved() {
-        mediaPlayer.stop();
+    public static void backToMainFromSolved() throws IOException {
         stageOthers.hide();
+        mediaPlayer.stop();
         Media sound = new Media(new File("resources/Music/mainWindow.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
+        Parent root = fxmlLoader.load();
+        stage.setTitle("The last Dance");
+        stage.setScene(new Scene(root, 1000, 600));
         stage.show();
-    }*/
+
+        model = new MyModel();
+        viewModel = new MyViewModel(model);
+        viewController = fxmlLoader.getController();
+        viewController.setViewModel(viewModel);
+    }
 
     public static void mazeSolved() throws IOException {
         mediaPlayer.stop();
