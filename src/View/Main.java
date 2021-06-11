@@ -25,6 +25,8 @@ public class Main extends Application {
     public static Stage stageOthers;
     public static MediaPlayer mediaPlayer;
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Media sound = new Media(new File("resources/Music/startWindow.mp3").toURI().toString());
@@ -94,6 +96,17 @@ public class Main extends Application {
         stageOthers.hide();
         stage.show();
     }
+
+    /*public static void backToMainFromSolved() {
+        mediaPlayer.stop();
+        stageOthers.hide();
+        Media sound = new Media(new File("resources/Music/mainWindow.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+        stage.show();
+    }*/
 
     public static void mazeSolved() throws IOException {
         mediaPlayer.stop();

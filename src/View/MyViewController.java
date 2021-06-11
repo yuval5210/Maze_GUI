@@ -126,18 +126,22 @@ public class MyViewController implements Initializable,Observer, IView{
 
         switch (change){
             case "player moved" -> playerMoved();
-            case "Player Finished" -> playerFinished();
+            case "Player Finished" -> {
+                try {
+                    playerFinished();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             case "maze generated" -> mazeGenerated();
             case "maze Solved" -> mazeSolved();
             case "Maze Saved" -> mazeSavedAlert();
             case "Maze Loaded" -> mazeLoadedAlert();
-
-
         }
     }
 
-    private void playerFinished() {
-        mazeSolved();
+    private void playerFinished() throws IOException {
+        Main.mazeSolved();
     }
 
     private void mazeLoadedAlert() {
@@ -368,6 +372,10 @@ public class MyViewController implements Initializable,Observer, IView{
     public void toAbout(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
         Main.mazeAbout();
+    }
+
+    public void backToMainSolve(ActionEvent actionEvent) throws IOException {
+        Main.startTheGame();
     }
 }
 

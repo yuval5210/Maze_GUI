@@ -10,12 +10,12 @@
     <children>
         <Pane layoutX="107.0" layoutY="14.0" prefHeight="600.0" prefWidth="600.0" style="-fx-background-image: url('https://i.redd.it/bo7fc6q9zcx61.jpg'); -fx-background-size: 100% 100%;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button fx:id="goBack" layoutX="14.0" layoutY="521.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="65.0" prefWidth="180.0" style="-fx-background-color: WITH;" text="Go Back">
+                <Button fx:id="goBack" layoutX="14.0" layoutY="521.0" mnemonicParsing="false" onAction="#backToMainSolve" prefHeight="65.0" prefWidth="180.0" style="-fx-background-color: WITH;" text="Go Back">
                     <font>
                         <Font name="Calibri Bold Italic" size="36.0" />
                     </font>
                     <cursor>
-                        <Cursor fx:constant="CROSSHAIR" />
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
             </children>
