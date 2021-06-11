@@ -21,5 +21,5 @@ public interface IModel {
     void stopServers();
 
 
-    void updatePlayerLocation(MouseEvent movement, double startX, double startY);
+    void updatePlayerLocation(MouseEvent movement, double startX, double startY, double cellWidth, double cellHegiht);
 }

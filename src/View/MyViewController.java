@@ -183,12 +183,10 @@ public class MyViewController implements Initializable,Observer, IView{
 
         int rows = Integer.valueOf(textField_mazeRows.getText());
         int cols = Integer.valueOf(textField_mazeColumns.getText());
-        //this.mazeDisplayer.deleteSol();
         viewModel.generateMaze(rows,cols);
 
 
-/*        setUpdatePlayerRow(0);
-        setUpdatePlayerCol(0);*/
+
     }
 
     public void mouseClick(MouseEvent mouseEvent) {
@@ -196,9 +194,7 @@ public class MyViewController implements Initializable,Observer, IView{
     }
 
     public void solveMaze(ActionEvent actionEvent) {
-        //Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        //alert.setContentText("Solving maze...");
-        //alert.show();
+
 
         viewModel.solveMaze();
 
@@ -230,29 +226,12 @@ public class MyViewController implements Initializable,Observer, IView{
     public void mouseDragged(MouseEvent mouseEvent) {
 
         if (this.drag_start && enoughForMovement(mouseEvent, this.mouseX,this.mouseY)){
-            this.viewModel.movePlayer(mouseEvent,this.mouseX,this.mouseY);
+            this.viewModel.movePlayer(mouseEvent,this.mouseX,this.mouseY , mazeDisplayer.cellWidth,mazeDisplayer.cellHeight);
             this.mouseX = mouseEvent.getX();
             this.mouseY = mouseEvent.getY();
         }
 
-/*        if(mouseEvent.isControlDown()) {
 
-
-            mazeDisplayer.changeCursorsPlace((mouseEvent.getX() - preX) / preX, (mouseEvent.getY() - preY) / preY);
-            preX = mouseEvent.getX();
-            preY = mouseEvent.getX();
-
-        }
-        else{
-
-                if(enoughForMovement(mouseEvent, mouseX, mouseY)) {
-                    //mazeDisplayer.changeCursorsPlace((mouseEvent.getX() - preX) / preX, (mouseEvent.getY() - preY) / preY);
-
-                    myViewModel.movePlayer(mouseEvent, mouseX, mouseY);
-                    mouseX = mouseEvent.getX();
-                    mouseY = mouseEvent.getY();
-                }
-            }*/
     }
 
     private boolean enoughForMovement(MouseEvent mouseEvent, double startX, double startY) {

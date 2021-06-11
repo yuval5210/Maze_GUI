@@ -92,8 +92,8 @@ public class MyViewModel extends Observable implements Observer {
         return model.getPlayerCol();
     }
 
-    public void movePlayer(MouseEvent movement, double startX, double startY){
-        model.updatePlayerLocation(movement,startX, startY);
+    public void movePlayer(MouseEvent movement, double startX, double startY ,double cellWidth , double cellHegiht ){
+        model.updatePlayerLocation(movement,startX, startY,cellWidth , cellHegiht);
     }
 
 }

@@ -226,32 +226,89 @@ public class MyModel extends Observable implements IModel {
     }
 
     @Override
-    public void updatePlayerLocation(MouseEvent movement, double startX, double startY) {
+    public void updatePlayerLocation(MouseEvent movement, double startX, double startY ,double cellWidth ,double cellHegiht ) {
         if (maze != null) {
 
             int row = playerRow;
             int col = playerCol;
             if (!movement.isControlDown()) {
-                if (movement.getY() < startY && (Math.abs(movement.getY() - startY) > 10)) {
-                    if (maze.getCellValue(row - 1, col) == 0)
-                        row--;
+                if (movement.getY() < startY && (Math.abs(movement.getY() - startY) >= cellHegiht)) {
+                    if (movement.getX() < startX && (Math.abs(movement.getX() - startX) >= cellWidth)){
+                        if(maze.getCellValue(row-1,col-1) ==0) {
+                            row--;
+                            col--;
+                        }
+                    }
+                    else if (movement.getX() > startX && (Math.abs(movement.getX() - startX) >= cellWidth)){
+                        if(maze.getCellValue(row-1,col+1) ==0) {
+                            row--;
+                            col++;
+                        }
+                    }
+                    else { /*(maze.getCellValue(row - 1, col) == 0)*/
+                        if(maze.getCellValue(row-1,col)==0) {
+                            row--;
+                        }
+                    }
 
 
-                } else if (movement.getY() > startY && (Math.abs(movement.getY() - startY) > 10)) {
-                    if (maze.getCellValue(row + 1, col) == 0)
-                        row++;
+                } else if (movement.getY() > startY && (Math.abs(movement.getY() - startY) >= cellHegiht)) {
+                    if(movement.getX() < startX && (Math.abs(movement.getX() - startX) >= cellWidth)){
+                        if(maze.getCellValue(row+1,col-1)==0) {
+                            row++;
+                            col--;
+                        }
+                    }
+                    else if(movement.getX() > startX && (Math.abs(movement.getX() - startX) >= cellWidth)){
+                        if(maze.getCellValue(row+1,col+1)==0) {
+                            row++;
+                            col++;
+                        }
+                    }
+                    else { /*(maze.getCellValue(row + 1, col) == 0)*/
+                        if(maze.getCellValue(row+1,col)==0) {
+                            row++;
+                        }
+                    }
 
-                } else if (movement.getX() > startX) {
+                } else if (movement.getX() > startX &&(Math.abs(movement.getX() - startX) >= cellWidth)) {
                     if (maze.getCellValue(row, col + 1) == 0)
                         col++;
 
                 }
 
-                else if (movement.getX() < startX) {
+                else if (movement.getX() < startX && (Math.abs(movement.getX() - startX) >= cellWidth)) {
                     if (maze.getCellValue(row, col - 1) == 0)
                         col--;
 
                 }
+/*                if (movement.getY() < startY && (Math.abs(movement.getY() - startY) > 10) && movement.getX() < startX){
+                    if (maze.getCellValue(row-1, col-1) == 0){
+                        row--;
+                        col--;
+                    }
+                }
+                else if (movement.getY() < startY && (Math.abs(movement.getY() - startY) > 10) && movement.getX() > startX){
+                    if (maze.getCellValue(row-1, col+1) == 0){
+                        row--;
+                        col++;
+                    }
+                }
+                else if (movement.getY() > startY && (Math.abs(movement.getY() - startY) > 10 && movement.getX() < startX)){
+                    if (maze.getCellValue(row+1, col-1) == 0){
+                        row++;
+                        col--;
+                    }
+                }
+                else if (movement.getY() > startY && (Math.abs(movement.getY() - startY) > 10 && movement.getX() > startX)){
+                    if (maze.getCellValue(row+1, col+1) == 0){
+                        row++;
+                        col++;
+                    }
+                }*/
+
+
+
             }
             playerRow = row;
             playerCol = col;
