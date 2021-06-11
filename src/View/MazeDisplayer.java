@@ -28,6 +28,19 @@ public class MazeDisplayer extends Canvas {
     StringProperty imageFileNameHoop = new SimpleStringProperty();
     StringProperty imageFileNameSolPath = new SimpleStringProperty();
 
+    private double zoomFactor;
+    private double zoomDelta;
+
+
+    public double canvasHeight;
+    public double canvasWidth;
+    public int rows;
+    public int cols;
+    public double cellHeight;
+    public double cellWidth;
+    private volatile Object zoomLock;
+    private volatile Object CHWL;
+
     public String getImageFileNameSolPath() {
         return imageFileNameSolPath.get();
     }
@@ -49,18 +62,6 @@ public class MazeDisplayer extends Canvas {
         this.imageFileNameHoop.set(imageFileNameHoop);
     }
 
-    private double zoomFactor;
-    private double zoomDelta;
-
-
-    public double canvasHeight;
-    public double canvasWidth;
-    public int rows;
-    public int cols;
-    public double cellHeight;
-    public double cellWidth;
-    private volatile Object zoomLock;
-    private volatile Object CHWL;
 
     public MazeDisplayer(){
         canvasHeight = getHeight();
@@ -69,9 +70,7 @@ public class MazeDisplayer extends Canvas {
         zoomDelta = 15;
         zoomLock = new Object();
         CHWL = new Object();
-
     }
-
 
     public void updateCanvasProperties() {
         synchronized (CHWL) {

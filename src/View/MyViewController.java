@@ -126,12 +126,18 @@ public class MyViewController implements Initializable,Observer, IView{
 
         switch (change){
             case "player moved" -> playerMoved();
+            case "Player Finished" -> playerFinished();
             case "maze generated" -> mazeGenerated();
             case "maze Solved" -> mazeSolved();
             case "Maze Saved" -> mazeSavedAlert();
             case "Maze Loaded" -> mazeLoadedAlert();
 
+
         }
+    }
+
+    private void playerFinished() {
+        mazeSolved();
     }
 
     private void mazeLoadedAlert() {

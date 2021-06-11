@@ -8,8 +8,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -20,14 +23,15 @@ public class Main extends Application {
     public static MyViewController viewController;
     public static Stage stageCreate;
     public static Stage stageOthers;
-    //public static Stage stageHelp;
-    //public static Stage stageMazeSolved;
-    //public static Stage stageProperties;
-
-
+    public static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Media sound = new Media(new File("resources/Music/startWindow.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
         Parent root = FXMLLoader.load(getClass().getResource("StartWindow.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("The Last Dance");
@@ -36,6 +40,12 @@ public class Main extends Application {
     }
 
     public static void startTheGame() throws IOException {
+        mediaPlayer.stop();
+        Media sound = new Media(new File("resources/Music/mainWindow.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("The last Dance");
@@ -60,7 +70,6 @@ public class Main extends Application {
 
         CreateNewMazeController createNewMaze = fxmlLoader.getController();
         createNewMaze.setView(viewController);
-        //stageCreate.getIcons().add(new Image("./resources/images/ball.png"));
     }
 
     public static void generateTheMaze() throws IOException {
@@ -87,6 +96,12 @@ public class Main extends Application {
     }
 
     public static void mazeSolved() throws IOException {
+        mediaPlayer.stop();
+        Media sound = new Media(new File("resources/Music/solved.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
         stage.hide();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MazeSolved.fxml"));
         Parent root = fxmlLoader.load();

@@ -57,10 +57,6 @@ public class MyModel extends Observable implements IModel {
 
     @Override
     public void updatePlayerLocation(MoveMentDirection direction) {
-
-
-
-
         int row = playerRow;
         int col = playerCol;
 
@@ -123,6 +119,10 @@ public class MyModel extends Observable implements IModel {
         playerCol = col;
 
         setChanged();
+        if((playerRow == this.maze.getGoalPosition().getRowIndex()) && (playerCol == this.maze.getGoalPosition().getColumnIndex())){
+            notifyObservers("Player Finished");
+            return;
+        }
         notifyObservers("player moved");
     }
 
@@ -315,6 +315,10 @@ public class MyModel extends Observable implements IModel {
             playerCol = col;
 
             setChanged();
+            if((playerRow == this.maze.getGoalPosition().getRowIndex()) && (playerCol == this.maze.getGoalPosition().getColumnIndex())){
+                notifyObservers("Player Finished");
+                return;
+            }
             notifyObservers("player moved");
         }
 
