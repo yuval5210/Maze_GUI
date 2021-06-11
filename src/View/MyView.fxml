@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import View.*?>
+<BorderPane onMouseClicked="#mouseClick"  prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('https://image.freepik.com/free-vector/basketball-court-floor-with-line-pattern-wood-background_64749-1760.jpg'); -fx-background-size: 100% 100%;" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+    <left>
+        <VBox prefHeight="496.0" prefWidth="0.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Status bar" />
+            </children>
+        </HBox>
+    </bottom>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#createNewMaze" text="New" />
+                                <MenuItem fx:id="loadBar" mnemonicParsing="false" onAction="#loadMaze" text="Load" />
+                                <MenuItem fx:id="saveBar" disable="true" mnemonicParsing="false" onAction="#saveMaze" text="Save" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Options">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#propertiesMaze" text="Properties" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem fx:id="solveBar" disable="true" mnemonicParsing="false" onAction="#solveMaze" text="Solve The Maze" />
+                                <MenuItem mnemonicParsing="false" onAction="#helpWindow" text="Help" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="About">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#aboutWindow" text="About The Application" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Exit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit Application" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <Pane prefHeight="558.0" prefWidth="990.0" BorderPane.alignment="CENTER">
+            <children>
+                <MazeDisplayer fx:id="mazeDisplayer" onDragDetected="#dragDetected" onMousePressed="#mousePressed" onMouseReleased="#mouseRelesed" onMouseDragged="#mouseDragged" height="558.0" onScroll="#they_see_me_scrolling" imageFileNameSolPath="resources/Images/x.png" imageFileNameHoop="./resources/Images/hoop.png" imageFileNamePlayer="./resources/Images/jordan.png" imageFileNameWall="./resources/Images/ball.png" onKeyPressed="#keyPressed" width="990.0" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </Pane>
+    </center>
+</BorderPane>

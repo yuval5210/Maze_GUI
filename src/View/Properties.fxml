@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
+    <center>
+        <Pane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: SANDYBROWN;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="354.0" layoutY="14.0" text="Properties" underline="true">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="64.0" />
+                    </font>
+                </Label>
+                <Label layoutX="218.0" layoutY="156.0" text="Number of Threads">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="30.0" />
+                    </font>
+                </Label>
+                <Label layoutX="218.0" layoutY="213.0" text="Generating Algorithm">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="30.0" />
+                    </font>
+                </Label>
+                <Label layoutX="218.0" layoutY="268.0" text="Solving Algorithm">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="30.0" />
+                    </font>
+                </Label>
+                <Button fx:id="confirm" layoutX="514.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: WITH;" text="Confirm">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="30.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancel" layoutX="338.0" layoutY="362.0" mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: WITH;" text="Cancel">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="30.0" />
+                    </font>
+                </Button>
+                <ChoiceBox fx:id="numOfThreads" layoutX="514.0" layoutY="158.0" prefHeight="32.0" prefWidth="182.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ChoiceBox>
+                <ChoiceBox fx:id="solvingAlgo" layoutX="514.0" layoutY="270.0" prefHeight="32.0" prefWidth="182.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ChoiceBox>
+                <ChoiceBox fx:id="generatingAlgo" layoutX="514.0" layoutY="215.0" prefHeight="32.0" prefWidth="182.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ChoiceBox>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>

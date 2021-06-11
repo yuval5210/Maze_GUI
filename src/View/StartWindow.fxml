@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('https://swingofthingssportsdotcom.files.wordpress.com/2020/04/the-last-dance-espn.png'); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartWindowController">
+    <children>
+        <BorderPane prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <GridPane alignment="TOP_CENTER" prefHeight="121.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="962.0" minWidth="10.0" prefWidth="962.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="494.0" minWidth="10.0" prefWidth="26.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#startTheGame" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: FIREBRICK;" text="Start" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                            <font>
+                                <Font name="Calibri Bold Italic" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: FIREBRICK;" text="Exit" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <font>
+                                <Font name="Calibri Bold Italic" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </GridPane>
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>
