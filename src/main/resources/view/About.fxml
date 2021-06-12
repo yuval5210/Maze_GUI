@@ -42,7 +42,7 @@
                     </menus>
                 </MenuBar>
             </top>
-            <center>
+         <left>
                 <Pane prefHeight="600.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                     <children>
                         <Label layoutX="376.0" layoutY="33.0" />
@@ -59,9 +59,44 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Button>
+                  <Label layoutX="32.0" layoutY="87.0" prefHeight="33.0" prefWidth="76.0" text="Hi user">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="137.0" prefHeight="33.0" prefWidth="815.0" text="We are Daniel and Yuval from the department SISE. We built a maze game just for you!!">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="162.0" prefHeight="33.0" prefWidth="815.0" text="The idea behind the game is to generate a random maze in any size you would like :)">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="188.0" prefHeight="33.0" prefWidth="880.0" text="Our maze generator is based on Prim’s algorithm (you can find information about the algorithm ">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="911.0" layoutY="188.0" onMouseClicked="#primInfo" prefHeight="33.0" prefWidth="57.0" text="here)" underline="true">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="213.0" prefHeight="33.0" prefWidth="880.0" text="The algorithm that solves the maze are Best First Search, BFS and DFS.">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="239.0" prefHeight="33.0" prefWidth="880.0" text="Have fun :)">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                  </Label>
                     </children>
                 </Pane>
-            </center>
+         </left>
         </BorderPane>
     </children>
 </AnchorPane>

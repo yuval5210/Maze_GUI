@@ -25,8 +25,10 @@ import javafx.stage.Screen;
 import javafx.stage.Window;
 
 
+import java.awt.*;
 import java.io.File;
 import java.lang.Object;
+import java.net.URISyntaxException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -375,7 +377,17 @@ public class MyViewController implements Initializable,Observer, IView{
     }
 
     public void backToMainSolve(ActionEvent actionEvent) throws IOException {
-        Main.startTheGame();
+        Main.backToMainFromSolved();
+    }
+
+    public void primInfo(MouseEvent mouseEvent) {
+        try{
+            Desktop.getDesktop().browse(new URL("https://en.wikipedia.org/wiki/Maze_generation_algorithm").toURI());
+        }catch(URISyntaxException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

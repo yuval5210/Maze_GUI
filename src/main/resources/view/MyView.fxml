@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import View.*?>
-<BorderPane onMouseClicked="#mouseClick"  prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('https://image.freepik.com/free-vector/basketball-court-floor-with-line-pattern-wood-background_64749-1760.jpg'); -fx-background-size: 100% 100%;" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane onMouseClicked="#mouseClick" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url('https://image.freepik.com/free-vector/basketball-court-floor-with-line-pattern-wood-background_64749-1760.jpg'); -fx-background-size: 100% 100%;" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <left>
         <VBox prefHeight="496.0" prefWidth="0.0" spacing="5.0" BorderPane.alignment="CENTER">
             <padding>

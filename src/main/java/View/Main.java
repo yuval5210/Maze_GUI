@@ -7,7 +7,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -34,7 +33,7 @@ public class Main extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        Parent root = FXMLLoader.load(getClass().getResource("StartWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/StartWindow.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("The Last Dance");
         primaryStage.setScene(new Scene(root, 1000, 600));
@@ -48,7 +47,7 @@ public class Main extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/MyView.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("The last Dance");
         stage.setScene(new Scene(root, 1000, 600));
@@ -63,7 +62,7 @@ public class Main extends Application {
 
     public static void createMaze() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CreateNewMaze.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/CreateNewMaze.fxml"));
         Parent root = fxmlLoader.load();
         stageCreate = new Stage();
         stageCreate.setTitle("The last Dance");
@@ -81,7 +80,7 @@ public class Main extends Application {
 
     public static void propertiesMaze() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Properties.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/Properties.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -105,7 +104,7 @@ public class Main extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/MyView.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("The last Dance");
         stage.setScene(new Scene(root, 1000, 600));
@@ -125,7 +124,7 @@ public class Main extends Application {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MazeSolved.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/MazeSolved.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -135,7 +134,7 @@ public class Main extends Application {
 
     public static void mazeHelp() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Help.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/Help.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -145,7 +144,7 @@ public class Main extends Application {
 
     public static void mazeAbout() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("About.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/About.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
