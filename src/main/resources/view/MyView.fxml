@@ -67,7 +67,7 @@
     <center>
         <Pane prefHeight="558.0" prefWidth="990.0" BorderPane.alignment="CENTER">
             <children>
-                <MazeDisplayer fx:id="mazeDisplayer" onDragDetected="#dragDetected" onMousePressed="#mousePressed" onMouseReleased="#mouseRelesed" onMouseDragged="#mouseDragged" height="558.0" onScroll="#they_see_me_scrolling" imageFileNameSolPath="resources/Images/x.png" imageFileNameHoop="./resources/Images/hoop.png" imageFileNamePlayer="./resources/Images/jordan.png" imageFileNameWall="./resources/Images/ball.png" onKeyPressed="#keyPressed" width="990.0" />
+                <MazeDisplayer fx:id="mazeDisplayer" onDragDetected="#dragDetected" onMousePressed="#mousePressed" onMouseReleased="#mouseRelesed" onMouseDragged="#mouseDragged" height="558.0" onScroll="#they_see_me_scrolling" imageFileNameSolPath="resources/Images/x.png" imageFileNameHoop="./resources/Images/hoop.png" imageFileNamePlayer="./resources/Images/jordan.png" imageFileNameWall="./resources/Images/ball.png" onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" width="990.0" />
             </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

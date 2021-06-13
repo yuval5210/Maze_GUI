@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -63,6 +64,12 @@ public class MyViewController implements Initializable,Observer, IView{
     private int rows;
     private int cols;
 
+    private boolean ctrl;
+
+    public MyViewController() {
+        this.mazeDisplayer = new MazeDisplayer();
+        this.ctrl = false;
+    }
 
     public void setViewModel(MyViewModel myViewModel){
         this.viewModel = myViewModel;
@@ -129,6 +136,7 @@ public class MyViewController implements Initializable,Observer, IView{
 
     private void playerFinished() throws IOException {
         updatePosition(this.mazeDisplayer.getMaze().getStartPosition());
+        viewModel.setMaze(this.mazeDisplayer.getMaze());
         Main.mazeSolved();
     }
 
@@ -204,6 +212,10 @@ public class MyViewController implements Initializable,Observer, IView{
 
     @Override
     public void keyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.CONTROL){
+            this.ctrl = true;
+            return;
+        }
         viewModel.movePlayer(keyEvent);
         keyEvent.consume();
     }
@@ -253,8 +265,10 @@ public class MyViewController implements Initializable,Observer, IView{
 
     @Override
     public void they_see_me_scrolling(ScrollEvent scrollEvent) {
-        mazeDisplayer.zoom(scrollEvent.getDeltaY() ,scrollEvent.getX());
-        scrollEvent.consume();
+        if (this.ctrl == true){
+            mazeDisplayer.zoom(scrollEvent.getDeltaY() ,scrollEvent.getX());
+            scrollEvent.consume();
+        }
     }
 
     @Override
@@ -359,6 +373,11 @@ public class MyViewController implements Initializable,Observer, IView{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void keyReleased(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.CONTROL)
+            this.ctrl = false;
     }
 }
 

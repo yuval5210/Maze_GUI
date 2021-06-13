@@ -22,5 +22,6 @@ public interface IModel {
     void updatePlayerLocation(MouseEvent movement, double startX, double startY, double cellWidth, double cellHegiht);
     void saveGame(File chosen);
     void loadGame(File chosen);
+    void setMaze(Maze maze);
 
 }

@@ -71,7 +71,7 @@ public class MyModel extends Observable implements IModel {
                 }
             }
             case DOWN, NUMPAD2 -> {
-                if (row < getMaze().getRows() - 1 && maze.getCellValue(row + 1, col) == 0) {
+                if (row < maze.getRows() - 1 && maze.getCellValue(row + 1, col) == 0) {
                     row++;
 
                 }
@@ -85,7 +85,7 @@ public class MyModel extends Observable implements IModel {
             }
 
             case RIGHT, NUMPAD6 -> {
-                if (col < getMaze().getColumns() - 1 && maze.getCellValue(row, col + 1) == 0) {
+                if (col < maze.getColumns() - 1 && maze.getCellValue(row, col + 1) == 0) {
                     col++;
 
                 }
@@ -98,7 +98,7 @@ public class MyModel extends Observable implements IModel {
                 }
             }
             case NUMPAD9 -> {
-                if (row > 0 && col < getMaze().getColumns() - 1 && maze.getCellValue(row - 1, col + 1) == 0) {
+                if (row > 0 && col < maze.getColumns() - 1 && maze.getCellValue(row - 1, col + 1) == 0) {
                     row--;
                     col++;
                 }
@@ -110,7 +110,7 @@ public class MyModel extends Observable implements IModel {
                 }
             }
             case NUMPAD3 -> {
-                if (row < maze.getRows() - 1 && col > maze.getColumns() - 1 && maze.getCellValue(row + 1, col + 1) == 0) {
+                if ((row < maze.getRows() - 1) && (col < maze.getColumns() - 1) && (maze.getCellValue(row + 1, col + 1) == 0)) {
                     row++;
                     col++;
                 }
@@ -177,7 +177,7 @@ public class MyModel extends Observable implements IModel {
         notifyObservers("maze generated");
     }
 
-    private void setMaze(Maze maze) {
+    public void setMaze(Maze maze) {
         this.maze = maze;
         this.solution = null;
         playerRow = maze.getStartPosition().getRowIndex();
