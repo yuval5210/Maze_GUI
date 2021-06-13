@@ -168,7 +168,7 @@ public class MyModel extends Observable implements IModel {
                 }
             });
             client.communicateWithServer();
-            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " " + this.maze.getRows() + ", " + this.maze.getColumns());
+            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " rows = " + this.maze.getRows() + ", columns = " + this.maze.getColumns());
         } catch (UnknownHostException var1) {
             var1.printStackTrace();
         }
@@ -212,7 +212,7 @@ public class MyModel extends Observable implements IModel {
                         }
                     });
             client.communicateWithServer();
-            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " " + this.maze.getRows() + ", " + this.maze.getColumns());
+            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " The searching algorithm is: " + Configurations.getMazeSearchingAlgorithm());
         } catch (UnknownHostException e) {
             System.out.println(e.getMessage());
         }
@@ -289,33 +289,6 @@ public class MyModel extends Observable implements IModel {
                         col--;
 
                 }
-/*                if (movement.getY() < startY && (Math.abs(movement.getY() - startY) > 10) && movement.getX() < startX){
-                    if (maze.getCellValue(row-1, col-1) == 0){
-                        row--;
-                        col--;
-                    }
-                }
-                else if (movement.getY() < startY && (Math.abs(movement.getY() - startY) > 10) && movement.getX() > startX){
-                    if (maze.getCellValue(row-1, col+1) == 0){
-                        row--;
-                        col++;
-                    }
-                }
-                else if (movement.getY() > startY && (Math.abs(movement.getY() - startY) > 10 && movement.getX() < startX)){
-                    if (maze.getCellValue(row+1, col-1) == 0){
-                        row++;
-                        col--;
-                    }
-                }
-                else if (movement.getY() > startY && (Math.abs(movement.getY() - startY) > 10 && movement.getX() > startX)){
-                    if (maze.getCellValue(row+1, col+1) == 0){
-                        row++;
-                        col++;
-                    }
-                }*/
-
-
-
             }
             playerRow = row;
             playerCol = col;
