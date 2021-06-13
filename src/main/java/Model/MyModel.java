@@ -11,12 +11,15 @@ import algorithms.mazeGenerators.Position;
 import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Observable;
 import java.util.Observer;
+
 
 public class MyModel extends Observable implements IModel {
 
@@ -25,6 +28,7 @@ public class MyModel extends Observable implements IModel {
     private Solution solution;
     private static int playerRow;
     private static int playerCol;
+    private static final Logger Logger = LogManager.getLogger();
 
 
     private Server generateServer;
@@ -164,6 +168,7 @@ public class MyModel extends Observable implements IModel {
                 }
             });
             client.communicateWithServer();
+            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " " + this.maze.getRows() + ", " + this.maze.getColumns());
         } catch (UnknownHostException var1) {
             var1.printStackTrace();
         }
@@ -177,8 +182,8 @@ public class MyModel extends Observable implements IModel {
         this.solution = null;
         playerRow = maze.getStartPosition().getRowIndex();
         playerCol = maze.getStartPosition().getColumnIndex();
-        setChanged();
-        notifyObservers();
+        //setChanged();
+        //notifyObservers();
 
     }
 
@@ -207,6 +212,7 @@ public class MyModel extends Observable implements IModel {
                         }
                     });
             client.communicateWithServer();
+            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " " + this.maze.getRows() + ", " + this.maze.getColumns());
         } catch (UnknownHostException e) {
             System.out.println(e.getMessage());
         }
@@ -216,8 +222,8 @@ public class MyModel extends Observable implements IModel {
 
     private void setSolution(Solution solution) {
         this.solution = solution;
-        setChanged();
-        notifyObservers(solution);
+        //setChanged();
+        //notifyObservers(solution);
 
     }
 
@@ -363,6 +369,7 @@ public class MyModel extends Observable implements IModel {
     }
 
 
+    @Override
     public void stopServers(){
         generateServer.stop();
         solverServer.stop();

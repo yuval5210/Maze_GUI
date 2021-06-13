@@ -66,7 +66,7 @@
                         <RowConstraints maxHeight="503.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="130.0" text="Maze Rows:" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="139.0" text="Maze Rows:" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Calibri Bold" size="22.0" />
                             </font>
@@ -101,7 +101,7 @@
                 </GridPane>
             </center>
          <bottom>
-            <Button mnemonicParsing="false" onAction="#backToMain" prefHeight="78.0" prefWidth="184.0" style="-fx-background-color: WITH;" text="Back" BorderPane.alignment="TOP_LEFT">
+            <Button mnemonicParsing="false" onAction="#backToMain" prefHeight="78.0" prefWidth="184.0" style="-fx-background-color: transparent;" text="Back" BorderPane.alignment="TOP_LEFT">
                <font>
                   <Font name="Calibri Bold Italic" size="36.0" />
                </font>

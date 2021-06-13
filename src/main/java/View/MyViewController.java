@@ -77,21 +77,19 @@ public class MyViewController implements Initializable,Observer, IView{
         mazeDisplayer.setPlayerPosition(PlayerRow,PlayerCol);
         this.characterPositionRow.set(""+PlayerRow);
         this.characterPositionColumn.set(""+PlayerCol);
-
     }
 
     @Override
     public void setRows(int rows) {
         this.rows = rows;
-
     }
 
     @Override
     public void setCols(int cols) {
         this.cols = cols;
-
     }
 
+    @Override
     public void loadGeneratedMaze(){
         try{
             viewModel.generateMaze(rows, cols);
@@ -99,7 +97,6 @@ public class MyViewController implements Initializable,Observer, IView{
             alertErrorMessage(e.getMessage());
         }
     }
-
 
     private void alertErrorMessage(String s){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -112,19 +109,6 @@ public class MyViewController implements Initializable,Observer, IView{
     @Override
     public void update(Observable o, Object arg) {
         String change = (String) arg;
-
-/*        if (o == myViewModel) {
-            if(arg instanceof Maze){
-                updateMaze((Maze)arg);
-            }
-            else if(arg instanceof Solution){
-                updateSolution((Solution)arg);
-            }
-            else if(arg instanceof Position){
-                updatePosition((Position)arg);
-            }
-
-        }*/
 
         switch (change){
             case "player moved" -> playerMoved();
@@ -139,10 +123,12 @@ public class MyViewController implements Initializable,Observer, IView{
             case "maze Solved" -> mazeSolved();
             case "Maze Saved" -> mazeSavedAlert();
             case "Maze Loaded" -> mazeLoadedAlert();
+            default -> System.out.println("There is not implemented change: " + change);
         }
     }
 
     private void playerFinished() throws IOException {
+        updatePosition(this.mazeDisplayer.getMaze().getStartPosition());
         Main.mazeSolved();
     }
 
@@ -187,16 +173,6 @@ public class MyViewController implements Initializable,Observer, IView{
         mazeDisplayer.setPlayerPosition(arg.getRowIndex(),arg.getColumnIndex());
     }
 
-    private void updateSolution(Solution arg) {
-        mazeDisplayer.setSolution(arg);
-
-    }
-
-    private void updateMaze(Maze arg) {
-        displayMaze(arg);
-
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -204,11 +180,6 @@ public class MyViewController implements Initializable,Observer, IView{
             lbl_player_row.textProperty().bind(characterPositionRow);
             lbl_player_col.textProperty().bind(characterPositionColumn);
         }
-/*        mazeDisplayer.heightProperty().bind(borderPane.heightProperty().divide(1.1));
-        mazeDisplayer.widthProperty().bind(borderPane.widthProperty().divide(1.1).add(-150));
-
-        borderPane.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*((double)3/(double) 5));
-        borderPane.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*((double)2/(double)3));*/
     }
 
     public void generateMaze(ActionEvent actionEvent) {
@@ -217,54 +188,46 @@ public class MyViewController implements Initializable,Observer, IView{
         int cols = Integer.valueOf(textField_mazeColumns.getText());
         //this.mazeDisplayer.deleteSol();
         viewModel.generateMaze(rows,cols);
-
-
-
     }
 
+    @Override
     public void mouseClick(MouseEvent mouseEvent) {
         mazeDisplayer.requestFocus();
     }
 
+    @Override
     public void solveMaze(ActionEvent actionEvent) {
-
-
         viewModel.solveMaze();
-
         mazeDisplayer.backToNormalZoom();
-
         mazeDisplayer.drawSolution(this.viewModel.getSolution());
     }
 
+    @Override
     public void keyPressed(KeyEvent keyEvent) {
         viewModel.movePlayer(keyEvent);
         keyEvent.consume();
     }
 
-
+    @Override
     public void dragDetected(MouseEvent mouseEvent) { // need to understand this part....
         this.mouseX = mouseEvent.getX();
         this.mouseY = mouseEvent.getY();
         this.drag_start = true;
-
-
     }
 
+    @Override
     public void mousePressed(MouseEvent mouseEvent) {
-
         mouseX = mouseEvent.getX();
         mouseY = mouseEvent.getY();
     }
 
+    @Override
     public void mouseDragged(MouseEvent mouseEvent) {
-
         if (this.drag_start && enoughForMovement(mouseEvent, this.mouseX,this.mouseY)){
             this.viewModel.movePlayer(mouseEvent,this.mouseX,this.mouseY , mazeDisplayer.cellWidth,mazeDisplayer.cellHeight);
             this.mouseX = mouseEvent.getX();
             this.mouseY = mouseEvent.getY();
         }
-
-
     }
 
     private boolean enoughForMovement(MouseEvent mouseEvent, double startX, double startY) {
@@ -275,6 +238,7 @@ public class MyViewController implements Initializable,Observer, IView{
         return leftOrRight || upOrDown;
     }
 
+    @Override
     public void mouseRelesed(MouseEvent mouseEvent) {
         this.drag_start = false;
         dragDone(mouseEvent);
@@ -282,35 +246,36 @@ public class MyViewController implements Initializable,Observer, IView{
     }
 
     private void dragDone(MouseEvent mouseEvent) {
-
         mouseX = mouseEvent.getX();
         mouseY = mouseEvent.getY();
 
     }
 
+    @Override
     public void they_see_me_scrolling(ScrollEvent scrollEvent) {
         mazeDisplayer.zoom(scrollEvent.getDeltaY() ,scrollEvent.getX());
         scrollEvent.consume();
     }
 
-
-
+    @Override
     public void createNewMaze(ActionEvent actionEvent) throws IOException {
         Main.createMaze();
     }
 
+    @Override
     public void backToMain(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
     }
 
+    @Override
     public void exit(ActionEvent actionEvent) throws Exception {
         if(Main.model != null)
             Main.model.stopServers();
         Platform.exit();
         System.exit(0);
-
     }
 
+    @Override
     public void loadMaze(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Maze");
@@ -320,6 +285,7 @@ public class MyViewController implements Initializable,Observer, IView{
         viewModel.loadGame(chosen);
     }
 
+    @Override
     public void loadMazeFromOtherPlace(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
         FileChooser fileChooser = new FileChooser();
@@ -330,6 +296,7 @@ public class MyViewController implements Initializable,Observer, IView{
         viewModel.loadGame(chosen);
     }
 
+    @Override
     public void saveMaze(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Maze");
@@ -339,47 +306,51 @@ public class MyViewController implements Initializable,Observer, IView{
         viewModel.saveGame(chosen);
     }
 
+    @Override
     public void propertiesMaze(ActionEvent actionEvent) throws IOException {
         Main.propertiesMaze();
     }
 
+    @Override
     public void helpWindow(ActionEvent actionEvent) throws IOException {
         Main.mazeHelp();
     }
 
+    @Override
     public void aboutWindow(ActionEvent actionEvent) throws IOException {
         Main.mazeAbout();
     }
 
+    @Override
     public void toNewMaze(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
         Main.createMaze();
     }
 
-    /*public void toLoadMaze(ActionEvent actionEvent) throws IOException {
-        Main.backToMain();
-        loadMazeFromOtherPlace();
-    }*/
-
+    @Override
     public void toProperties(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
         Main.propertiesMaze();
     }
 
+    @Override
     public void toHelp(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
         Main.mazeHelp();
     }
 
+    @Override
     public void toAbout(ActionEvent actionEvent) throws IOException {
         Main.backToMain();
         Main.mazeAbout();
     }
 
+    @Override
     public void backToMainSolve(ActionEvent actionEvent) throws IOException {
         Main.backToMainFromSolved();
     }
 
+    @Override
     public void primInfo(MouseEvent mouseEvent) {
         try{
             Desktop.getDesktop().browse(new URL("https://en.wikipedia.org/wiki/Maze_generation_algorithm").toURI());

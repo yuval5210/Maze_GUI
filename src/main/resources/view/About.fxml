@@ -51,7 +51,7 @@
                                 <Font name="Calibri Bold Italic" size="64.0" />
                             </font>
                         </Label>
-                        <Button layoutX="14.0" layoutY="511.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="39.0" prefWidth="122.0" style="-fx-background-color: WITH;" text="Back">
+                        <Button layoutX="14.0" layoutY="511.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="39.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="Back">
                             <font>
                                 <Font name="Calibri Bold Italic" size="24.0" />
                             </font>

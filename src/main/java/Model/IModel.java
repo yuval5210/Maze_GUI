@@ -18,13 +18,9 @@ public interface IModel {
     int getPlayerRow();
     int getPlayerCol();
     void assignObserver(Observer o);
-
     void stopServers();
-
-
     void updatePlayerLocation(MouseEvent movement, double startX, double startY, double cellWidth, double cellHegiht);
-
     void saveGame(File chosen);
-
     void loadGame(File chosen);
+
 }

@@ -1,8 +1,11 @@
 package View;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -11,8 +14,10 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CreateNewMazeController {
+public class CreateNewMazeController implements Initializable {
 
     private int rows;
     private int cols;
@@ -20,6 +25,7 @@ public class CreateNewMazeController {
     public TextField rowsNum;
     public TextField colsNum;
     public IView view;
+
 
     public void setView(IView view) {
         this.view = view;
@@ -62,7 +68,7 @@ public class CreateNewMazeController {
             alertErrorMessage("You must fill in number of columns");
             return false;
         }
-        else if (!isNumber(this.rowsNum.getText()) && !isNumber(this.colsNum.getText())){
+        /*else if (!isNumber(this.rowsNum.getText()) && !isNumber(this.colsNum.getText())){
             alertErrorMessage("You must fill in an integer number of rows and columns");
             return false;
         }
@@ -73,7 +79,7 @@ public class CreateNewMazeController {
         else if(!isNumber(this.colsNum.getText())){
             alertErrorMessage("You must fill in an integer number of columns");
             return false;
-        }
+        }*/
 
         this.rows = Integer.valueOf(this.rowsNum.getText());
         this.cols = Integer.valueOf(this.colsNum.getText());
@@ -112,5 +118,28 @@ public class CreateNewMazeController {
 
     public void backToMain(ActionEvent actionEvent) throws IOException {
         Main.generateTheMaze();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        rowsNum.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    rowsNum.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+        colsNum.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    colsNum.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
     }
 }

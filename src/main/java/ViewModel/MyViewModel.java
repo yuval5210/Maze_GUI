@@ -50,7 +50,7 @@ public class MyViewModel extends Observable implements Observer {
             case DOWN , NUMPAD2-> direction = MoveMentDirection.DOWN;
             case LEFT , NUMPAD4-> direction = MoveMentDirection.LEFT;
             case RIGHT , NUMPAD6 -> direction = MoveMentDirection.RIGHT;
-/*            case NUMPAD9 -> direction = MoveMentDirection.RIGHTU;
+            /*case NUMPAD9 -> direction = MoveMentDirection.RIGHTU;
             case NUMPAD7 -> direction = MoveMentDirection.LEFTU;
             case NUMPAD1 -> direction = MoveMentDirection.LEFTD;
             case NUMPAD3 -> direction = MoveMentDirection.RIGHTD;*/

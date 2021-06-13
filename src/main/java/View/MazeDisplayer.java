@@ -156,8 +156,6 @@ public class MazeDisplayer extends Canvas {
         this.PlayerRow = row;
         this.PlayerCol = column;
         draw();
-
-
     }
 
     public void setSolution(Solution arg) {
