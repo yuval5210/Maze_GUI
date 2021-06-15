@@ -37,8 +37,6 @@ public class PropertiesController {
         this.numOfThreads.setValue(numThreads + "");
         this.numOfThreads.setItems(threads);
 
-
-
         IMazeGenerator generator = (IMazeGenerator) prop[1];
         String generatorName = generator.getClass().toString();
         generatorName = generatorName.substring(32);
@@ -72,5 +70,9 @@ public class PropertiesController {
 
     public void setView(IView view) {
         this.view = view;
+    }
+
+    public IView getView() {
+        return view;
     }
 }

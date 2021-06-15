@@ -294,9 +294,10 @@ public class MyViewController implements Initializable,Observer, IView{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Maze");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
-        fileChooser.setInitialDirectory(new File("./resources/SavedMaze"));
+        fileChooser.setInitialDirectory(new File("SavedMaze"));
         File chosen = fileChooser.showOpenDialog((Window) null);
-        viewModel.loadGame(chosen);
+        if(chosen != null)
+            viewModel.loadGame(chosen);
     }
 
     @Override
@@ -305,9 +306,10 @@ public class MyViewController implements Initializable,Observer, IView{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Maze");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
-        fileChooser.setInitialDirectory(new File("./resources/SavedMaze"));
+        fileChooser.setInitialDirectory(new File("SavedMaze"));
         File chosen = fileChooser.showOpenDialog((Window) null);
-        viewModel.loadGame(chosen);
+        if(chosen != null)
+            viewModel.loadGame(chosen);
     }
 
     @Override
@@ -315,9 +317,10 @@ public class MyViewController implements Initializable,Observer, IView{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Maze");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
-        fileChooser.setInitialDirectory(new File("./resources/SavedMaze"));
+        fileChooser.setInitialDirectory(new File("SavedMaze"));
         File chosen = fileChooser.showSaveDialog((Window) null);
-        viewModel.saveGame(chosen);
+        if(chosen != null)
+            viewModel.saveGame(chosen);
     }
 
     @Override

@@ -18,26 +18,8 @@ public class StartWindowController {
 
     @FXML
     private void startTheGame(ActionEvent actionEvent) throws Exception{
-
-        /*
-        Parent root = fxmlLoader.load();
-
-        Stage stage = new Stage();
-
-        stage.setTitle("The last Dance");
-        stage.setScene(new Scene(root, 1000, 600));
-        stage.show();*/
-
         Main.startTheGame();
 
-        /*FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
-
-        IModel model = new MyModel();
-        MyViewModel viewModel = new MyViewModel(model);
-        MyViewController viewController = fxmlLoader.getController();
-        viewController.setViewModel(viewModel);
-
-        viewModel.addObserver(viewController);*/
     }
 
     public void exit(ActionEvent actionEvent) {

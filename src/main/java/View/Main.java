@@ -25,19 +25,19 @@ public class Main extends Application {
     public static Stage stageCreate;
     public static Stage stageOthers;
     public static MediaPlayer mediaPlayer;
+    private static URL soundPath;
 
 
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Media sound = new Media(new File("resources/Music/startWindow.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
+        soundPath = this.getClass().getResource("/Music/startWindow.mp3");
+        Media media = new Media(soundPath.toString());
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-/*        URL url = Paths.get("src/main/resources/viewFXML/StartWindow.fxml").toUri().toURL();
-        Parent root = FXMLLoader.load(url);*/
-        Parent root = FXMLLoader.load(Main.class.getResource("../viewFXML/StartWindow.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("/viewFXML/StartWindow.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("The Last Dance");
         primaryStage.setScene(new Scene(root, 1000, 600));
@@ -46,12 +46,13 @@ public class Main extends Application {
 
     public static void startTheGame() throws IOException {
         mediaPlayer.stop();
-        Media sound = new Media(new File("resources/Music/mainWindow.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
+        soundPath = Main.class.getResource("/Music/mainWindow.mp3");
+        Media media = new Media(soundPath.toString());
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/MyView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/viewFXML/MyView.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("The last Dance");
         stage.setScene(new Scene(root, 1000, 600));
@@ -66,7 +67,7 @@ public class Main extends Application {
 
     public static void createMaze() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/CreateNewMaze.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/viewFXML/CreateNewMaze.fxml"));
         Parent root = fxmlLoader.load();
         stageCreate = new Stage();
         stageCreate.setTitle("The last Dance");
@@ -84,7 +85,7 @@ public class Main extends Application {
 
     public static void propertiesMaze() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/Properties.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/viewFXML/Properties.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -92,7 +93,8 @@ public class Main extends Application {
         stageOthers.show();
 
         PropertiesController propertiesMaze = fxmlLoader.getController();
-        propertiesMaze.setView(viewController);
+        if(propertiesMaze.getView() == null)
+            propertiesMaze.setView(viewController);
     }
 
     public static void backToMain() throws IOException {
@@ -103,8 +105,9 @@ public class Main extends Application {
     public static void backToMainFromSolved() throws IOException {
         stageOthers.hide();
         mediaPlayer.stop();
-        Media sound = new Media(new File("resources/Music/mainWindow.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
+        soundPath = Main.class.getResource("/Music/mainWindow.mp3");
+        Media media = new Media(soundPath.toString());
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
@@ -115,13 +118,14 @@ public class Main extends Application {
 
     public static void mazeSolved() throws IOException {
         mediaPlayer.stop();
-        Media sound = new Media(new File("resources/Music/solved.mp3").toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
+        soundPath = Main.class.getResource("/Music/solved.mp3");
+        Media media = new Media(soundPath.toString());;
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/MazeSolved.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/viewFXML/MazeSolved.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -131,7 +135,7 @@ public class Main extends Application {
 
     public static void mazeHelp() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/Help.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/viewFXML/Help.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -141,7 +145,7 @@ public class Main extends Application {
 
     public static void mazeAbout() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/About.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/viewFXML/About.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");

@@ -208,9 +208,9 @@ public class MazeDisplayer extends Canvas {
 
             drawMazeWalls(graphicsContext,rows,cols,cellHeight,cellWidth);
 
-            if (solution != null){
+           // if (solution != null){
                 //drawSolution(graphicsContext,cellHeight,cellWidth);
-            }
+            //}
             drawMazePlayer(graphicsContext,cellHeight,cellWidth);
             drawMazeGoal(graphicsContext,cellHeight,cellWidth);
 
@@ -221,11 +221,12 @@ public class MazeDisplayer extends Canvas {
     public void drawMazeGoal(GraphicsContext graphicsContext, double cellHeight, double cellWidth) {
 
         Image net = null;
-        try {
-            net = new Image(new FileInputStream(getImageFileNameHoop()));
-        } catch (FileNotFoundException e) {
+        //try {
+            net = new Image(this.getClass().getClassLoader().getResourceAsStream(getImageFileNameHoop()));
+            //net = new Image(this.getClass().getClassLoader().getResourceAsStream(this.getImageFileNameHoop()));
+        /*} catch (FileNotFoundException e) {
             System.out.println("Where the hell is jordan?");
-        }
+        }*/
 
         double x = maze.getGoalPosition().getColumnIndex() * cellWidth;
         double y = maze.getGoalPosition().getRowIndex() * cellHeight;
@@ -243,11 +244,12 @@ public class MazeDisplayer extends Canvas {
 
     private void drawMazePlayer(GraphicsContext graphicsContext, double cellHeight, double cellWidth) {
         Image jordan = null;
-        try {
-            jordan = new Image(new FileInputStream(getImageFileNamePlayer()));
-        } catch (FileNotFoundException e) {
+        //try {
+            jordan = new Image(this.getClass().getClassLoader().getResourceAsStream(getImageFileNamePlayer()));
+            //jordan = new Image(new FileInputStream(getImageFileNamePlayer()));
+        /*}catch (FileNotFoundException e) {
             System.out.println("Where the hell is jordan?");
-        }
+        }*/
 
         double x = getPlayerCol() * cellWidth;
         double y = getPlayerRow() * cellHeight;
@@ -264,11 +266,11 @@ public class MazeDisplayer extends Canvas {
 
     private void drawMazeWalls(GraphicsContext graphicsContext, int rows, int cols, double cellHeight, double cellWidth) {
         Image ball = null;
-        try {
-            ball = new Image(new FileInputStream(getImageFileNameWall()));
-        } catch (FileNotFoundException e) {
+        //try {
+            ball = new Image(this.getClass().getClassLoader().getResourceAsStream(getImageFileNameWall()));
+        /*} catch (FileNotFoundException e) {
             System.out.println("There is no  wall Image");
-        }
+        }*/
 
         graphicsContext.setFill(Color.RED);
         for (int i = 0; i < maze.getRows(); i++) {
@@ -299,12 +301,12 @@ public class MazeDisplayer extends Canvas {
         graphicsContext.setFill(Color.GREEN);
 
         Image X = null;
-        try {
-            X = new Image(new FileInputStream(getImageFileNameSolPath()));
-        } catch (FileNotFoundException e) {
+        //try {
+            X = new Image(this.getClass().getClassLoader().getResourceAsStream(getImageFileNameSolPath()));
+        /*} catch (FileNotFoundException e) {
             System.out.println("There is no path Image");
         }
-
+*/
 
         ArrayList<AState> solutionPath = sol.getSolutionPath();
         for (AState state : solutionPath)
