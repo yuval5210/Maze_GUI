@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Paths;
 
 public class Main extends Application {
 
@@ -33,7 +35,9 @@ public class Main extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        Parent root = FXMLLoader.load(getClass().getResource("../view/StartWindow.fxml"));
+/*        URL url = Paths.get("src/main/resources/viewFXML/StartWindow.fxml").toUri().toURL();
+        Parent root = FXMLLoader.load(url);*/
+        Parent root = FXMLLoader.load(Main.class.getResource("../viewFXML/StartWindow.fxml"));
         stage = primaryStage;
         primaryStage.setTitle("The Last Dance");
         primaryStage.setScene(new Scene(root, 1000, 600));
@@ -47,7 +51,7 @@ public class Main extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/MyView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/MyView.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("The last Dance");
         stage.setScene(new Scene(root, 1000, 600));
@@ -62,7 +66,7 @@ public class Main extends Application {
 
     public static void createMaze() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/CreateNewMaze.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/CreateNewMaze.fxml"));
         Parent root = fxmlLoader.load();
         stageCreate = new Stage();
         stageCreate.setTitle("The last Dance");
@@ -80,7 +84,7 @@ public class Main extends Application {
 
     public static void propertiesMaze() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/Properties.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/Properties.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -117,7 +121,7 @@ public class Main extends Application {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/MazeSolved.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/MazeSolved.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -127,7 +131,7 @@ public class Main extends Application {
 
     public static void mazeHelp() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/Help.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/Help.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -137,7 +141,7 @@ public class Main extends Application {
 
     public static void mazeAbout() throws IOException {
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../view/About.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../viewFXML/About.fxml"));
         Parent root = fxmlLoader.load();
         stageOthers = new Stage();
         stageOthers.setTitle("The last Dance");
@@ -155,59 +159,4 @@ public class Main extends Application {
         launch(args);
     }
 }
-/*
-    @Override
-    public void start(Stage primaryStage) throws Exception{
 
-
-        Parent root = FXMLLoader.load(getClass().getResource("StartWindow.fxml"));
-        stage = primaryStage;
-        primaryStage.setTitle("The Last Dance");
-        primaryStage.setScene(new Scene(root, 1000, 600));
-        primaryStage.show();
-
-*//*        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MyView.fxml"));
-        Parent root = fxmlLoader.load();
-        primaryStage.setTitle("The Last Maze - Another Jordan tale");
-        primaryStage.setScene(new Scene(root, 600 , 450));
-        primaryStage.show();
-
-        IModel model = new MyModel();
-        MyViewModel myViewModel = new MyViewModel(model);
-        MyViewController controller = fxmlLoader.getController();
-        controller.setViewModel(myViewModel);*//*
-
-*//*
-        Main.primaryStage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("startScene.fxml"));
-        Parent root = fxmlLoader.load();
-        primaryStage.setTitle("The Last Maze - Another Jordan tale");
-        primaryStage.setScene(new Scene(root, 600 , 450));
-        primaryStage.show();
-*//*
-
-*//*        IModel model = new MyModel();
-        MyViewModel myViewModel = new MyViewModel(model);
-        MyViewController controller = fxmlLoader.getController();
-        controller.setViewModel(myViewModel);*//*
-    }
-
-    public static void realStart() throws IOException{
-
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
-        Parent root = fxmlLoader.load();
-        stage.setTitle("The Last Maze - Another Jordan tale");
-        stage.setScene(new Scene(root, 600 , 450));
-        stage.show();
-
-        IModel model = new MyModel();
-        MyViewModel myViewModel = new MyViewModel(model);
-        MyViewController controller = fxmlLoader.getController();
-        controller.setViewModel(myViewModel);
-
-    }
-    public static void main(String[] args) {
-        launch(args);
-    }
-}*/

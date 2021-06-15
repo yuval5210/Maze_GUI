@@ -32,7 +32,7 @@
                         <Font name="Calibri Bold Italic" size="30.0" />
                     </font>
                 </Label>
-                <Button fx:id="confirm" layoutX="514.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Confirm">
+                <Button fx:id="confirm" onAction="#confirmProperties" layoutX="514.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Confirm">
                     <font>
                         <Font name="Calibri Bold Italic" size="30.0" />
                     </font>
