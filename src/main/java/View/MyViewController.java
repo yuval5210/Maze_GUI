@@ -294,7 +294,7 @@ public class MyViewController implements Initializable,Observer, IView{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Maze");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
-        fileChooser.setInitialDirectory(new File("SavedMaze"));
+        fileChooser.setInitialDirectory(new File("Resources/SavedMaze"));
         File chosen = fileChooser.showOpenDialog((Window) null);
         if(chosen != null)
             viewModel.loadGame(chosen);
@@ -306,7 +306,7 @@ public class MyViewController implements Initializable,Observer, IView{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Maze");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
-        fileChooser.setInitialDirectory(new File("SavedMaze"));
+        fileChooser.setInitialDirectory(new File("Resources/SavedMaze"));
         File chosen = fileChooser.showOpenDialog((Window) null);
         if(chosen != null)
             viewModel.loadGame(chosen);
@@ -317,7 +317,7 @@ public class MyViewController implements Initializable,Observer, IView{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Maze");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze files (*.maze)" , new String[]{"*.maze"}));
-        fileChooser.setInitialDirectory(new File("SavedMaze"));
+        fileChooser.setInitialDirectory(new File("Resources/SavedMaze"));
         File chosen = fileChooser.showSaveDialog((Window) null);
         if(chosen != null)
             viewModel.saveGame(chosen);

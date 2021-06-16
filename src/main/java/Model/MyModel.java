@@ -28,7 +28,7 @@ public class MyModel extends Observable implements IModel {
     private Solution solution;
     private static int playerRow;
     private static int playerCol;
-    //private static final Logger Logger = LogManager.getLogger();
+    private static final Logger Logger = LogManager.getLogger();
 
 
     private Server generateServer;
@@ -168,7 +168,7 @@ public class MyModel extends Observable implements IModel {
                 }
             });
             client.communicateWithServer();
-            //Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " rows = " + this.maze.getRows() + ", columns = " + this.maze.getColumns());
+            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " rows = " + this.maze.getRows() + ", columns = " + this.maze.getColumns());
         } catch (UnknownHostException var1) {
             var1.printStackTrace();
         }
@@ -212,7 +212,7 @@ public class MyModel extends Observable implements IModel {
                         }
                     });
             client.communicateWithServer();
-            //Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " The searching algorithm is: " + Configurations.getMazeSearchingAlgorithm());
+            Logger.info("Client accepted: " + InetAddress.getLocalHost().toString() + " The searching algorithm is: " + Configurations.getMazeSearchingAlgorithm());
         } catch (UnknownHostException e) {
             System.out.println(e.getMessage());
         }
